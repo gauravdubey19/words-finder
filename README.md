@@ -123,7 +123,3 @@ import { findWords, WordsFinderResult } from "words-finder";
 ## License
 
 ISC
-
-## Keywords
-
-array list english words word
