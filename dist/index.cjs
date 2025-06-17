@@ -23,12 +23,12 @@ __export(index_exports, {
   findWords: () => findWords
 });
 module.exports = __toCommonJS(index_exports);
-var import_fs = require("fs");
-var import_path = require("path");
+var import_node_fs = require("fs");
+var import_node_path = require("path");
 function loadWords(filename) {
   try {
-    const filePath = (0, import_path.join)(__dirname, "..", filename);
-    const content = (0, import_fs.readFileSync)(filePath, "utf-8");
+    const filePath = (0, import_node_path.join)(__dirname, "..", filename);
+    const content = (0, import_node_fs.readFileSync)(filePath, "utf-8");
     return content.split("\n").map((word) => word.trim().toLowerCase()).filter(Boolean);
   } catch (error) {
     console.error(`Error loading ${filename}:`, error);

@@ -1,20 +1,23 @@
 {
   "name": "words-finder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A utility package to find words with specific letters and lengths.",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "browser": false,
-  "engines": {
-    "node": ">=14.0.0"
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --external fs,path",
+    "build": "tsup src/index.ts --format cjs,esm --dts --platform node --external fs,path",
     "test": "jest",
     "lint": "eslint .",
     "prepublishOnly": "npm run build"
@@ -39,7 +42,6 @@
   },
   "homepage": "https://github.com/gauravdubey19/words-finder#readme",
   "license": "ISC",
-  "type": "module",
   "devDependencies": {
     "@types/node": "^24.0.3",
     "tsup": "^8.5.0",
