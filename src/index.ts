@@ -1,5 +1,9 @@
 import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+// Get the directory path for this module
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // interface for the return value
 export interface WordsFinderResult {
@@ -17,7 +21,7 @@ function loadWords(filename: string): string[] {
     const content = readFileSync(filePath, "utf-8");
     return content
       .split("\n")
-      .map((word) => word.trim().toLowerCase())
+      .map((word: string) => word.trim().toLowerCase())
       .filter(Boolean);
   } catch (error) {
     console.error(`Error loading ${filename}:`, error);

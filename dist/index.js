@@ -1,6 +1,9 @@
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
 // src/index.ts
-import { readFileSync } from "fs";
-import { join } from "path";
+var __dirname = dirname(fileURLToPath(import.meta.url));
 function loadWords(filename) {
   try {
     const filePath = join(__dirname, "..", filename);
@@ -34,6 +37,7 @@ function findWords(letters, limit = 10, isOrdered = true) {
     input: letters
   };
 }
-export {
-  findWords
-};
+
+export { findWords };
+//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.js.map

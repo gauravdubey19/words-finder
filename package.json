@@ -1,23 +1,39 @@
 {
   "name": "words-finder",
-  "version": "1.0.2",
-  "description": "A utility package to find words with specific letters and lengths.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "1.0.5",
+  "description": "A powerful Node.js utility package that finds words containing specific letters, with support for both ordered and unordered matching. Uses an extensive word list combining both standard and extended English vocabularies.",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "words.txt",
+    "words_alpha.txt"
   ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "os": [
+    "!browser"
+  ],
+  "cpu": [
+    "!browser"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --platform node --external fs,path",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest",
     "lint": "eslint .",
     "prepublishOnly": "npm run build"

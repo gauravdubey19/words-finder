@@ -1,34 +1,16 @@
-"use strict";
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+'use strict';
 
+var fs = require('fs');
+var path = require('path');
+var url = require('url');
+
+var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
 // src/index.ts
-var index_exports = {};
-__export(index_exports, {
-  findWords: () => findWords
-});
-module.exports = __toCommonJS(index_exports);
-var import_node_fs = require("fs");
-var import_node_path = require("path");
+var __dirname$1 = path.dirname(url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.cjs', document.baseURI).href))));
 function loadWords(filename) {
   try {
-    const filePath = (0, import_node_path.join)(__dirname, "..", filename);
-    const content = (0, import_node_fs.readFileSync)(filePath, "utf-8");
+    const filePath = path.join(__dirname$1, "..", filename);
+    const content = fs.readFileSync(filePath, "utf-8");
     return content.split("\n").map((word) => word.trim().toLowerCase()).filter(Boolean);
   } catch (error) {
     console.error(`Error loading ${filename}:`, error);
@@ -58,7 +40,7 @@ function findWords(letters, limit = 10, isOrdered = true) {
     input: letters
   };
 }
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
-  findWords
-});
+
+exports.findWords = findWords;
+//# sourceMappingURL=index.cjs.map
+//# sourceMappingURL=index.cjs.map
